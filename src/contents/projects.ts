@@ -1,3 +1,5 @@
+import { Project } from "@/types";
+
 export const projects: Project[] = [
   {
     title: "E-commerce Platform",
