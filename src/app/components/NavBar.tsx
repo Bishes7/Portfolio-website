@@ -8,10 +8,10 @@ import {
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
+import { useTheme } from "../context/ThemeContext";
 
 export default function NavBar() {
-  const theme = "dark";
-
+  const { theme, toggleTheme } = useTheme();
   const [isHamburgerMenu, setIsHamburgerMenu] = useState<boolean>(false);
   const pathname = usePathname();
 
@@ -51,7 +51,10 @@ export default function NavBar() {
               );
             })}
 
-            <button className="p-2 rounded-lg hover:bg-gray-100 text-white hover:text-primary dark:hover:bg-gray-800 transition-colors cursor-pointer  ">
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-lg hover:bg-gray-100 text-white hover:text-primary dark:hover:bg-gray-800 transition-colors cursor-pointer  "
+            >
               {theme === "dark" ? (
                 <SunIcon className="w-5 h-5" />
               ) : (
@@ -86,16 +89,17 @@ export default function NavBar() {
                   </Link>
                 </div>
               ))}
-              <button className="flex items-center py-2 hover:text-primary transition-colors  ">
+              <button
+                onClick={toggleTheme}
+                className="flex items-center py-2 hover:text-primary transition-colors  "
+              >
                 {theme === "dark" ? (
                   <SunIcon className="w-5 h-5 mr-2" />
                 ) : (
                   <MoonIcon className="w-5 h-5 mr-2" />
                 )}
               </button>
-              <div>
-                <button></button>
-              </div>
+              <div></div>
             </div>
           </div>
         )}
