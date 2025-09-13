@@ -11,7 +11,7 @@ export const projects: Project[] = [
     image: "/projects/e-commerce-website.png",
   },
   {
-    title: "Task Management App",
+    title: "RealEstate App",
     description:
       "A collaborative task management application with real-time updates.",
     technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
@@ -38,34 +38,19 @@ export const projects: Project[] = [
     image: "/projects/blog-website.jpeg",
   },
   {
-    title: "Weather App",
+    title: "Library Management System App",
     description:
       "A weather application that provides real-time weather updates.",
-    technologies: ["React", "OpenWeatherMap API"],
+    technologies: ["React", "Node", "MongoDb", "Express"],
     githubLink: "https://github.com",
     demoLink: "https://demo.com",
     image: "/projects/weather-app.png",
   },
-  {
-    title: "Chat Application",
-    description: "A real-time chat application using WebSocket technology.",
-    technologies: ["React", "Node.js", "Socket.io"],
-    githubLink: "https://github.com",
-    demoLink: "https://demo.com",
-    image: "/projects/chat-app.png",
-  },
-  {
-    title: "Recipe Finder",
-    description: "A recipe search application using the Edamam API.",
-    technologies: ["React", "Edamam API"],
-    githubLink: "https://github.com",
-    demoLink: "https://demo.com",
-    image: "/projects/recipe-finder.png",
-  },
+
   {
     title: "Expense Tracker",
     description: "A personal finance tracker to manage expenses and income.",
-    technologies: ["React", "Firebase"],
+    technologies: ["React", "Node", "MongoDb", "Express"],
     githubLink: "https://github.com",
     demoLink: "https://demo.com",
     image: "/projects/expense-tracker.webp",
