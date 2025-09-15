@@ -1,11 +1,62 @@
+"use client";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { FaEnvelope, FaLocationArrow, FaPhone } from "react-icons/fa";
 
+interface FormData {
+  name: string;
+  email: string;
+  message: string;
+}
+
+type FormStatus = "idle" | "loading" | "success" | "error";
+
 export default function ContactPage() {
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState<FormStatus>("idle");
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+      setStatus("success");
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      setStatus("error");
+    }
+  };
   return (
     <div className="container max-w-7xl mx-auto py-12 ">
-      <h1 className="text-4xl font-bold mb-12 text-center">Contact Me</h1>
+      <h1 className="text-4xl font-bold mb-18 text-center">Contact Me</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* contact info */}
         <div className="space-y-8">
@@ -51,6 +102,62 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
+        </div>
+        {/* contact form */}
+        <div className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md">
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium mb-2">
+                Name
+              </label>
+              <input
+                required
+                type="text"
+                id="name"
+                value={FormData.name}
+                onChange={handleChange}
+                placeholder="Enter your name"
+                className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-dark focus:ring-2 focus:ring-primary focus:border-none  placeholder:text-white/50  "
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium mb-2">
+                Email
+              </label>
+              <input
+                value={FormData.email}
+                onChange={handleChange}
+                required
+                placeholder="Enter your email"
+                type="email"
+                id="email"
+                className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-dark focus:ring-2 focus:ring-primary focus:border-none  placeholder:text-white/50  "
+              />
+            </div>
+            <div>
+              <label
+                htmlFor="message"
+                className="block text-sm font-medium mb-2"
+              >
+                Message
+              </label>
+              <textarea
+                value={FormData.message}
+                onChange={handleChange}
+                required
+                rows={4}
+                id="message"
+                name="message"
+                placeholder="Enter your message"
+                className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-dark focus:ring-2 focus:ring-primary focus:border-none placeholder:text-white/50 "
+              />
+            </div>
+
+            <button type="submit" className="w-full btn btn-primary">
+              {status === "loading" ? "Sending" : "Send Message"}
+            </button>
+            {}
+          </form>
         </div>
       </div>
     </div>
