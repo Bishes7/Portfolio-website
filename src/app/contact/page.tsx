@@ -114,7 +114,8 @@ export default function ContactPage() {
                 required
                 type="text"
                 id="name"
-                value={FormData.name}
+                name="name"
+                value={formData.name}
                 onChange={handleChange}
                 placeholder="Enter your name"
                 className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-dark focus:ring-2 focus:ring-primary focus:border-none  placeholder:text-white/50  "
@@ -125,12 +126,13 @@ export default function ContactPage() {
                 Email
               </label>
               <input
-                value={FormData.email}
+                value={formData.email}
                 onChange={handleChange}
                 required
                 placeholder="Enter your email"
                 type="email"
                 id="email"
+                name="email"
                 className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-700 bg-white dark:bg-dark focus:ring-2 focus:ring-primary focus:border-none  placeholder:text-white/50  "
               />
             </div>
@@ -142,7 +144,7 @@ export default function ContactPage() {
                 Message
               </label>
               <textarea
-                value={FormData.message}
+                value={formData.message}
                 onChange={handleChange}
                 required
                 rows={4}
@@ -153,10 +155,22 @@ export default function ContactPage() {
               />
             </div>
 
-            <button type="submit" className="w-full btn btn-primary">
+            <button
+              type="submit"
+              className="w-full btn btn-primary cursor-pointer"
+            >
               {status === "loading" ? "Sending" : "Send Message"}
             </button>
-            {}
+            {status === "success" && (
+              <p className="text-green-500 text-center">
+                Message sent successfully
+              </p>
+            )}
+            {status === "error" && (
+              <p className="text-red-600 text-center">
+                Failed to send Message. Please try again
+              </p>
+            )}
           </form>
         </div>
       </div>
