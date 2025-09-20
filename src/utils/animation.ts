@@ -26,6 +26,7 @@ export const staggerContainer = {
 
 export const cardHover = {
   whileHover: { scale: 1.05 },
+
   transition: { type: "spring", stiffness: 300 },
 };
 

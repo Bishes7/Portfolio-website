@@ -1,17 +1,31 @@
+"use client";
 import { blogs } from "@/contents/blogs";
 import Link from "next/link";
 import React from "react";
 import { FaCalendarAlt, FaClock } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { cardHoverSmall, fadeIn, fadeInUp } from "@/utils/animation";
 
 export default function BlogsPage() {
   return (
     <div className="container max-w-7xl mx-auto py-12 mb-">
-      <h1 className="text-4xl font-bold mb-4 text-center mb-12 ">Blog Posts</h1>
+      <motion.h1
+        {...fadeInUp}
+        transition={{ delay: 0.5 }}
+        className="text-4xl font-bold text-center mb-12 "
+      >
+        Blog Posts
+      </motion.h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
+      <motion.div
+        {...fadeIn}
+        transition={{ delay: 0.5 }}
+        className="grid grid-cols-1 md:grid-cols-3 gap-8 "
+      >
         {blogs.map((blog) => (
-          <article
+          <motion.article
             key={blog.slug}
+            {...cardHoverSmall}
             className="bg-white dark:bg-dark/50 rounded-lg shadow-md p-6  "
           >
             <Link href={`/blogs/${blog.slug}`}>
@@ -32,9 +46,9 @@ export default function BlogsPage() {
                 {blog.readTime}
               </span>
             </div>
-          </article>
+          </motion.article>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }

@@ -1,24 +1,50 @@
+"use client";
 import React from "react";
 import { FaCode, FaLaptopCode } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { cardHover, fadeInUp, scaleIn } from "@/utils/animation";
 
 export default function AboutPage() {
   return (
-    <div className="container max-w-7xl mx-auto py-12">
-      <h1 className="text-4xl font-bold mb-8 text-center">About me</h1>
+    <motion.div
+      {...scaleIn}
+      transition={{ delay: 0.2 }}
+      className="container max-w-7xl mx-auto py-12"
+    >
+      <motion.h1
+        {...fadeInUp}
+        transition={{ delay: 0.5 }}
+        className="text-4xl font-bold mb-8 text-center"
+      >
+        About me
+      </motion.h1>
       {/* bio section */}
       <section className="mb-12">
-        <p className="text-lg text-secondary max-w-3xl mx-auto text-center">
+        <motion.p
+          {...fadeInUp}
+          transition={{ delay: 0.5 }}
+          className="text-lg text-secondary max-w-3xl mx-auto text-center"
+        >
           I&apos;m a passionate Full Stack Developer with expertise in building
           moern web application. With a strong foundation in both frontend and
           backend technologies, I create seamless user experience and robust
           server-side solutions
-        </p>
+        </motion.p>
       </section>
       {/* skills section */}
       <section className="mb-12">
-        <h2 className="section-title">Skills</h2>
+        <motion.h2
+          {...scaleIn}
+          transition={{ delay: 0.5 }}
+          className="section-title"
+        >
+          Skills
+        </motion.h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md">
+          <motion.div
+            {...cardHover}
+            className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md"
+          >
             <FaCode className="h-8 w-8 text-primary mb-4" />
             <h3 className="text-xl font-semibold mb-2">Frontend</h3>
             <ul className="text-secondary space-y-2">
@@ -27,8 +53,11 @@ export default function AboutPage() {
               <li>Tailwind CSS</li>
               <li>Redux</li>
             </ul>
-          </div>
-          <div className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md">
+          </motion.div>
+          <motion.div
+            {...cardHover}
+            className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md"
+          >
             <FaLaptopCode className="h-8 w-8 text-primary mb-4" />
             <h3 className="text-xl font-semibold mb-2">Backend</h3>
             <ul className="text-secondary space-y-2">
@@ -37,8 +66,11 @@ export default function AboutPage() {
               <li>PostgreSQL</li>
               <li>MongoDB</li>
             </ul>
-          </div>
-          <div className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md">
+          </motion.div>
+          <motion.div
+            {...cardHover}
+            className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md"
+          >
             <FaCode className="h-8 w-8 text-primary mb-4" />
             <h3 className="text-xl font-semibold mb-2">Tools</h3>
             <ul className="text-secondary space-y-2">
@@ -46,7 +78,7 @@ export default function AboutPage() {
               <li>AWS</li>
               <li>CI/CD</li>
             </ul>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -125,6 +157,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-    </div>
+    </motion.div>
   );
 }

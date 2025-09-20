@@ -1,24 +1,40 @@
+"use client";
 import { projects } from "@/contents/projects";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { cardHover, fadeInUp, scaleIn } from "@/utils/animation";
 
 export default function ProjectPage() {
   return (
     <div className="container max-w-7xl mx-auto py-12">
-      <h1 className="text-4xl font-bold mb-4 text-center">My Projects</h1>
-      <p className="text-lg text-secondary mb-12 text-center ">
+      <motion.h1
+        {...scaleIn}
+        transition={{ delay: 0.3 }}
+        className="text-4xl font-bold mb-4 text-center"
+      >
+        My Projects
+      </motion.h1>
+      <motion.p
+        {...fadeInUp}
+        transition={{ delay: 0.5 }}
+        className="text-lg text-secondary mb-12 text-center "
+      >
         Here are some of my recent projects. Click on the links to view the code
         or live demo
-      </p>
+      </motion.p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
         {projects.map((project) => (
           <article
             key={project.title}
             className="bg-white dark:bg-dark/50 rounded-lg shadow-md p-6 "
           >
-            <div className="relative aspect-video mb-4 rounded-lg overflow-hidden ">
+            <motion.div
+              {...cardHover}
+              className="relative aspect-video mb-4 rounded-lg overflow-hidden "
+            >
               <Image
                 src={project.image}
                 alt={project.title}
@@ -26,7 +42,7 @@ export default function ProjectPage() {
                 className="object-cover"
                 sizes="(max-width:768px) 100vw, (max-width:1200px) 50vw, 33vw"
               />
-            </div>
+            </motion.div>
             <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
             <p className="text-gray-600 dark:text-gray-300 mb-4">
               {project.description}

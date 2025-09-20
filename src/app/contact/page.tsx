@@ -2,6 +2,8 @@
 import Link from "next/link";
 import React, { useState } from "react";
 import { FaEnvelope, FaLocationArrow, FaPhone } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { fadeInUp, slideInLeft, slideInRight } from "@/utils/animation";
 
 interface FormData {
   name: string;
@@ -57,10 +59,16 @@ export default function ContactPage() {
   };
   return (
     <div className="container max-w-7xl mx-auto py-12 ">
-      <h1 className="text-4xl font-bold mb-18 text-center">Contact Me</h1>
+      <motion.h1
+        {...fadeInUp}
+        transition={{ delay: 0.5 }}
+        className="text-4xl font-bold mb-18 text-center"
+      >
+        Contact Me
+      </motion.h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
         {/* contact info */}
-        <div className="space-y-8">
+        <motion.div {...slideInLeft} className="space-y-8">
           <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
           <p className="text-secondary md:w-2/3">
             I&apos;m always open to discussing new projects, creative ideas or
@@ -103,9 +111,12 @@ export default function ContactPage() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
         {/* contact form */}
-        <div className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md">
+        <motion.div
+          {...slideInRight}
+          className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md"
+        >
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -173,7 +184,7 @@ export default function ContactPage() {
               </p>
             )}
           </form>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

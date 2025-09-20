@@ -5,7 +5,7 @@ import Link from "next/link";
 import React from "react";
 import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { fadeInUp, scaleIn } from "@/utils/animation";
+import { cardHoverSmall, fadeInUp, scaleIn } from "@/utils/animation";
 
 const Hero = () => {
   return (
@@ -63,18 +63,22 @@ const Hero = () => {
         </div>
         <div className="flex flex-col md:flex-row justify-center gap-4 ">
           {" "}
-          <Link
-            href=""
-            className="bg-primary inline-block w-full md:w-auto text-white px-8 py-3 rounded-lg hover:bg-primary/80 transition-colors"
-          >
-            View Projects
-          </Link>
-          <Link
-            href=""
-            className="bg-yellow-400 inline-block w-full md:w-auto text-gray-800 px-8 py-3 rounded-lg hover:bg-amber-300 transition-colors"
-          >
-            Contact Me
-          </Link>
+          <motion.div {...cardHoverSmall}>
+            <Link
+              href=""
+              className="bg-primary inline-block w-full md:w-auto text-white px-8 py-3 rounded-lg hover:bg-primary/80 transition-colors"
+            >
+              View Projects
+            </Link>
+          </motion.div>
+          <motion.div {...cardHoverSmall}>
+            <Link
+              href=""
+              className="bg-yellow-400 inline-block w-full md:w-auto text-gray-800 px-8 py-3 rounded-lg hover:bg-amber-300 transition-colors"
+            >
+              Contact Me
+            </Link>
+          </motion.div>
         </div>
       </div>
     </section>
