@@ -52,6 +52,7 @@ export default function ContactPage() {
       });
     } catch (error) {
       setStatus("error");
+      console.log("Error sending message", error);
     }
   };
   return (
@@ -62,7 +63,7 @@ export default function ContactPage() {
         <div className="space-y-8">
           <h2 className="text-2xl font-semibold mb-4">Get in Touch</h2>
           <p className="text-secondary md:w-2/3">
-            I'm always open to discussing new projects, creative ideas or
+            I&apos;m always open to discussing new projects, creative ideas or
             opportunities
           </p>
           <div className="space-y-4">

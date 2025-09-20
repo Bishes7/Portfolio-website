@@ -1,10 +1,5 @@
+import ContactRequestBody from "@/app/contactInterface";
 import { NextResponse } from "next/server";
-
-interface ContactRequestBody {
-  name: string;
-  email: string;
-  message: string;
-}
 
 export async function POST(request: Request) {
   try {

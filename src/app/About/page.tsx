@@ -8,10 +8,10 @@ export default function AboutPage() {
       {/* bio section */}
       <section className="mb-12">
         <p className="text-lg text-secondary max-w-3xl mx-auto text-center">
-          I'm a passionate Full Stack Developer with expertise in building moern
-          web application. With a strong foundation in both frontend and backend
-          technologies, I create seamless user experience and robust server-side
-          solutions
+          I&apos;m a passionate Full Stack Developer with expertise in building
+          moern web application. With a strong foundation in both frontend and
+          backend technologies, I create seamless user experience and robust
+          server-side solutions
         </p>
       </section>
       {/* skills section */}
