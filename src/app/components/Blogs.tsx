@@ -1,7 +1,10 @@
+"use client";
 import { blogs } from "@/contents/blogs";
 import Link from "next/link";
 import React from "react";
 import { FaCalendarAlt, FaClock } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { cardHoverSmall } from "@/utils/animation";
 
 export default function Blogs() {
   return (
@@ -11,8 +14,9 @@ export default function Blogs() {
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {blogs.map((blog) => (
-          <article
+          <motion.article
             key={blog.slug}
+            {...cardHoverSmall}
             className="bg-white dark:bg-dark/50 rounded-lg shadow-md p-6  "
           >
             <Link href={`/blogs/${blog.slug}`}>
@@ -33,7 +37,7 @@ export default function Blogs() {
                 {blog.readTime}
               </span>
             </div>
-          </article>
+          </motion.article>
         ))}
       </div>
       <div className="text-center mt-12 ">

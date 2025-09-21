@@ -1,9 +1,11 @@
+"use client";
 import { projects } from "@/contents/projects";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
-
+import { motion } from "framer-motion";
+import { cardHover } from "@/utils/animation";
 const Projects = () => {
   return (
     <div className="py-20 container ">
@@ -12,8 +14,9 @@ const Projects = () => {
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ">
         {projects.map((project) => (
-          <article
+          <motion.article
             key={project.title}
+            {...cardHover}
             className="bg-white dark:bg-dark/50 rounded-lg shadow-md p-6 "
           >
             <div className="relative aspect-video mb-4 rounded-lg overflow-hidden ">
@@ -57,7 +60,7 @@ const Projects = () => {
                 <span>Live Demo</span>
               </Link>
             </div>
-          </article>
+          </motion.article>
         ))}
       </div>
     </div>

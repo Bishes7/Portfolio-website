@@ -5,7 +5,8 @@ import Link from "next/link";
 import React from "react";
 import { FaFacebook, FaGithub, FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
-import { cardHoverSmall, fadeInUp, scaleIn } from "@/utils/animation";
+import { cardHoverSmall, fadeIn, fadeInUp, scaleIn } from "@/utils/animation";
+import { Typewriter } from "react-simple-typewriter";
 
 const Hero = () => {
   return (
@@ -17,27 +18,42 @@ const Hero = () => {
           className="flex flex-col items-center mb-4"
         >
           <Image
-            src="/profile.avif"
+            src="/profile.jpg"
             alt="profile"
             height={100}
             width={100}
             className="rounded-full mb-4 w-32 h-32 object-cover ring-2 ring-primary"
           />
         </motion.div>
+
         <motion.h1
           {...fadeInUp}
           transition={{ delay: 0.4 }}
           className="text-4xl md:text-6xl font-bold mb-6 "
         >
-          Hi, I&apos;m <span className="text-primary">Bishes Adhikari</span>{" "}
+          Hi, I&apos;m <span className="text-primary">Bishes Adhikari</span>
+          <br />
+          <motion.span
+            {...fadeIn}
+            transition={{ delay: 0.4 }}
+            className="text-secondary my-4"
+          >
+            <Typewriter
+              words={[
+                "Full Stack Developer",
+                "UX/UI Enthusiast",
+                "Open Source Contrubutor",
+              ]}
+              loop={0} // 0 = infinite
+              cursor
+              cursorStyle="|"
+              typeSpeed={70}
+              deleteSpeed={50}
+              delaySpeed={1500}
+            />
+          </motion.span>
         </motion.h1>
-        <motion.p
-          {...fadeInUp}
-          transition={{ delay: 0.6 }}
-          className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8  font-bold"
-        >
-          Full Stack Developer | UI/UX Enthusiast | Open Source Contributor
-        </motion.p>
+
         <div className="flex justify-center space-x-4 mb-8">
           <Link
             href=""
