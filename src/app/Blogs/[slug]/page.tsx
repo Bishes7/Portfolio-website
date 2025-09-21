@@ -2,6 +2,10 @@ import { blogs } from "@/contents/blogs";
 import { notFound } from "next/navigation";
 import { FaCalendarAlt, FaClock } from "react-icons/fa";
 
+export function generateStaticParams() {
+  return blogs.map((blog) => ({ slug: blog.slug }));
+}
+
 export default function BlogDetailPage({
   params,
 }: {
