@@ -81,7 +81,7 @@ const Hero = () => {
           {" "}
           <motion.div {...cardHoverSmall}>
             <Link
-              href=""
+              href="/projects"
               className="bg-primary inline-block w-full md:w-auto text-white px-8 py-3 rounded-lg hover:bg-primary/80 transition-colors"
             >
               View Projects
@@ -89,7 +89,7 @@ const Hero = () => {
           </motion.div>
           <motion.div {...cardHoverSmall}>
             <Link
-              href=""
+              href="/contact"
               className="bg-yellow-400 inline-block w-full md:w-auto text-gray-800 px-8 py-3 rounded-lg hover:bg-amber-300 transition-colors"
             >
               Contact Me
