@@ -67,7 +67,7 @@ export default function ProjectPage() {
                 <span>Code</span>
               </Link>
               <Link
-                href={project.githubLink}
+                href={project.demoLink}
                 target="_blank"
                 className="flex items-center gap-2 text-secondary hover:text-primary transition-colors "
               >
