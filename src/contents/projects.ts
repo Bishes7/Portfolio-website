@@ -25,7 +25,7 @@ export const projects: Project[] = [
       "My personal portfolio website showcasing my projects and skills.",
     technologies: ["Next.js", "Tailwind CSS", "Framer Motion"],
     githubLink: "https://github.com/Bishes7/Portfolio-website",
-    demoLink: "https://portfolio-website-khaki-iota-62.vercel.app/",
+    demoLink: "https://portfolio-website-alpha-vert-22.vercel.app/",
     image: "/projects/portfolio.webp",
   },
   {
