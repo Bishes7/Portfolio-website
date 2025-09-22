@@ -43,7 +43,7 @@ export const projects: Project[] = [
       "A weather application that provides real-time weather updates.",
     technologies: ["React", "Node", "MongoDb", "Express"],
     githubLink: "https://github.com/Bishes7/Frontend-library-management-system",
-    demoLink: "frontend-library-management-system.vercel.app",
+    demoLink: "https://frontend-library-management-system.vercel.app/",
     image: "/projects/weather-app.png",
   },
 
@@ -52,7 +52,7 @@ export const projects: Project[] = [
     description: "A personal finance tracker to manage expenses and income.",
     technologies: ["React", "Node", "MongoDb", "Express"],
     githubLink: "https://github.com/Bishes7/finance-tracker",
-    demoLink: "finance-tracker-two-eta.vercel.app",
+    demoLink: "https://finance-tracker-two-eta.vercel.app",
     image: "/projects/expense-tracker.webp",
   },
 ];
